@@ -1,4 +1,4 @@
-package br.com.gbotossi.revolutpoc.resources;
+package br.com.gbotossi.revolutpoc.controllers;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -8,7 +8,7 @@ import javax.ws.rs.core.Response;
 
 @Path("/hello")
 @Produces(MediaType.TEXT_PLAIN)
-public class MessageResource {
+public class HelloController {
 
     @GET
     public Response printMessage() {

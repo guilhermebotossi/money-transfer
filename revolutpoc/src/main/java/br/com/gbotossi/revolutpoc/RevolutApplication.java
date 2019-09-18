@@ -1,6 +1,6 @@
 package br.com.gbotossi.revolutpoc;
 
-import br.com.gbotossi.revolutpoc.resources.MessageResource;
+import br.com.gbotossi.revolutpoc.controllers.HelloController;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
@@ -13,7 +13,7 @@ public class RevolutApplication extends Application {
     private Set<Object> singletons = new HashSet<Object>();
 
     public RevolutApplication() {
-        singletons.add(new MessageResource());
+        singletons.add(new HelloController());
     }
 
     @Override
