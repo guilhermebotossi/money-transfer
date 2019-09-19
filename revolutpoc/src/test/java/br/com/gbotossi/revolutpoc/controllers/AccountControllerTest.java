@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
+import java.util.UUID;
 
 import static br.com.gbotossi.revolutpoc.CustomMockito.*;
 import static org.junit.Assert.assertSame;
@@ -35,4 +36,15 @@ public class AccountControllerTest {
         verify(accountService).listAll();
     }
 
+    @Test
+    public void findById_called_success(){
+        UUID id = UUID.fromString("2f1246c0-c023-4fca-ab8d-b57ae848546c");
+        Account accountMock = mock(Account.class);
+        when(accountService.findById(id)).thenReturn(accountMock);
+
+        Account account = accountController.findById(id);
+
+        assertSame(accountMock, account);
+        verify(accountService).findById(id);
+    }
 }
