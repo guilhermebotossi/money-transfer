@@ -9,4 +9,6 @@ public interface AccountService {
     public List<Account> listAll();
 
     public Account findById(UUID id);
+
+    public Account create(Account accountMock);
 }

@@ -22,4 +22,6 @@ public class AccountController {
     public Account findById(UUID id) {
         return accountService.findById(id);
     }
+
+    public Account create(Account account) { return accountService.create(account); }
 }

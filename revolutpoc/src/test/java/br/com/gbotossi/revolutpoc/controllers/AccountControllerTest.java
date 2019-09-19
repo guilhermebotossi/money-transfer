@@ -47,4 +47,16 @@ public class AccountControllerTest {
         assertSame(accountMock, account);
         verify(accountService).findById(id);
     }
+
+    @Test
+    public void create_called_success(){
+        Account accountMock = mock(Account.class);
+        when(accountService.create(accountMock)).thenReturn(accountMock);
+
+        Account account = accountController.create(accountMock);
+
+        assertSame(accountMock, account);
+        verify(accountService).create(accountMock);
+    }
+
 }
