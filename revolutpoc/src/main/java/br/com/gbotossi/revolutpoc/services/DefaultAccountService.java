@@ -1,24 +1,33 @@
 package br.com.gbotossi.revolutpoc.services;
 
 import br.com.gbotossi.revolutpoc.models.Account;
+import br.com.gbotossi.revolutpoc.repositories.AccountRepository;
 
-import java.util.ArrayList;
+import javax.inject.Inject;
 import java.util.List;
-import java.util.UUID;
 
 public class DefaultAccountService implements AccountService {
+
+    private AccountRepository accountRepository;
+
+    @Inject
+    public DefaultAccountService(AccountRepository accountRepository) {
+        this.accountRepository = accountRepository;
+    }
+
+
     @Override
     public List<Account> listAll() {
-        return new ArrayList<>();
+        return accountRepository.listAll();
     }
 
     @Override
-    public Account findById(UUID id) {
-        return new Account();
+    public Account findById(Long id) {
+        return accountRepository.findById(id);
     }
 
     @Override
-    public Account create(Account accountMock) {
-        return new Account();
+    public Account create(Account account) {
+        return accountRepository.create(account);
     }
 }

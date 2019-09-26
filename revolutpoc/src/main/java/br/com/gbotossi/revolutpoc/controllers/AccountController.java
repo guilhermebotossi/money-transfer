@@ -7,7 +7,6 @@ import com.google.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
-import java.util.UUID;
 
 @Path("/account")
 @Produces(MediaType.APPLICATION_JSON)
@@ -29,7 +28,7 @@ public class AccountController {
 
     @GET
     @Path("{id}")
-    public Account findById(@PathParam("id") UUID id) {
+    public Account findById(@PathParam("id") Long id) {
         return accountService.findById(id);
     }
 

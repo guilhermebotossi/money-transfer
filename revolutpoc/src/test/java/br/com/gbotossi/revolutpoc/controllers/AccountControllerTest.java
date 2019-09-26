@@ -4,16 +4,12 @@ import br.com.gbotossi.revolutpoc.models.Account;
 import br.com.gbotossi.revolutpoc.services.AccountService;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
-import java.util.UUID;
 
-import static br.com.gbotossi.revolutpoc.CustomMockito.*;
+import static br.com.gbotossi.revolutpoc.utils.CustomMockito.*;
 import static org.junit.Assert.assertSame;
 
-@RunWith(MockitoJUnitRunner.class)
 public class AccountControllerTest {
 
     private AccountController accountController;
@@ -38,7 +34,7 @@ public class AccountControllerTest {
 
     @Test
     public void findById_called_success(){
-        UUID id = UUID.fromString("2f1246c0-c023-4fca-ab8d-b57ae848546c");
+        Long id = 1L;
         Account accountMock = mock(Account.class);
         when(accountService.findById(id)).thenReturn(accountMock);
 

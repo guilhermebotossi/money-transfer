@@ -1,4 +1,4 @@
-package br.com.gbotossi.revolutpoc;
+package br.com.gbotossi.revolutpoc.utils;
 
 import org.mockito.Mockito;
 

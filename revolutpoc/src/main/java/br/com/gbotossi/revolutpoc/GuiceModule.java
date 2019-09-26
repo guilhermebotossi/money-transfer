@@ -2,6 +2,8 @@ package br.com.gbotossi.revolutpoc;
 
 import br.com.gbotossi.revolutpoc.controllers.AccountController;
 import br.com.gbotossi.revolutpoc.controllers.HelloController;
+import br.com.gbotossi.revolutpoc.repositories.AccountRepository;
+import br.com.gbotossi.revolutpoc.repositories.DefaultAccountRepository;
 import br.com.gbotossi.revolutpoc.services.AccountService;
 import br.com.gbotossi.revolutpoc.services.DefaultAccountService;
 import com.google.inject.AbstractModule;
@@ -14,6 +16,7 @@ public class GuiceModule extends AbstractModule {
         bind(HelloController.class);
         bind(AccountController.class);
         bind(AccountService.class).to(DefaultAccountService.class);
+        bind(AccountRepository.class).to(DefaultAccountRepository.class);
         bind(GuiceFilter.class);
     }
 
