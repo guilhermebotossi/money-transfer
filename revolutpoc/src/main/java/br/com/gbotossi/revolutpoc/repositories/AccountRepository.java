@@ -10,5 +10,5 @@ public interface AccountRepository {
 
     public Account findById(Long id);
 
-    public Account create(Account accountMock);
+    public Account create(Account account);
 }

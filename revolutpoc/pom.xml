@@ -11,6 +11,7 @@
 
 
     <properties>
+        <sonar.exclusions>br/com/gbotossi/revolutpoc/config/*</sonar.exclusions>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -75,23 +76,32 @@
           <version>${guice.version}</version>
       </dependency>
       <dependency>
+          <groupId>com.google.inject.extensions</groupId>
+          <artifactId>guice-persist</artifactId>
+          <version>${guice.version}</version>
+      </dependency>
+      <dependency>
           <groupId>org.jboss.resteasy</groupId>
           <artifactId>resteasy-guice</artifactId>
           <version>${resteasy.version}</version>
       </dependency>
-<!--      <dependency>-->
-<!--          <groupId>com.google.inject.extensions</groupId>-->
-<!--          <artifactId>guice-multibindings</artifactId>-->
-<!--          <version>${guice.version}</version>-->
-<!--      </dependency>-->
       <dependency>
           <groupId>org.jboss.resteasy</groupId>
           <artifactId>resteasy-jackson-provider</artifactId>
           <version>3.9.0.Final</version>
       </dependency>
-
+      <dependency>
+          <groupId>org.hibernate</groupId>
+          <artifactId>hibernate-core</artifactId>
+          <version>5.2.6.Final</version>
+          <exclusions>
+              <exclusion>
+                  <groupId>javax.enterprise</groupId>
+                  <artifactId>cdi-api</artifactId>
+              </exclusion>
+          </exclusions>
+      </dependency>
   </dependencies>
-
   <build>
     <finalName>revolut-poc</finalName>
       <plugins>
@@ -109,6 +119,17 @@
               <artifactId>jetty-maven-plugin</artifactId>
               <version>${jetty.version}</version>
           </plugin>
+          <plugin>
+              <groupId>org.jacoco</groupId>
+              <artifactId>jacoco-maven-plugin</artifactId>
+              <version>0.8.4</version>
+              <configuration>
+                  <excludes>
+                      <exclude>br/com/gbotossi/revolutpoc/config/*</exclude>
+                  </excludes>
+              </configuration>
+          </plugin>
       </plugins>
   </build>
 </project>
+

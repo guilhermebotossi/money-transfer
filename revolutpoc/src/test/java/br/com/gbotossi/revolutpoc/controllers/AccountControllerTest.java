@@ -8,7 +8,7 @@ import org.junit.Test;
 import java.util.List;
 
 import static br.com.gbotossi.revolutpoc.utils.CustomMockito.*;
-import static org.junit.Assert.assertSame;
+import static org.junit.Assert.*;
 
 public class AccountControllerTest {
 
@@ -19,6 +19,12 @@ public class AccountControllerTest {
     public void before() {
         accountService = mock(AccountService.class);
         accountController = new AccountController(accountService);
+    }
+
+    @Test
+    public void noArgsCostructor(){
+        AccountController accountController = new AccountController();
+        assertNotNull(accountController);
     }
 
     @Test
