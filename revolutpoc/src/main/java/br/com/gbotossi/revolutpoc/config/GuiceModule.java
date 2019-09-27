@@ -18,7 +18,6 @@ public class GuiceModule extends AbstractModule {
     protected void configure() {
         install(new JpaPersistModule("H2_PU"));
         bind(JPAInitializer.class).asEagerSingleton();
-        bind(HelloController.class);
         bind(AccountController.class);
         bind(AccountService.class).to(DefaultAccountService.class);
         bind(AccountRepository.class).to(DefaultAccountRepository.class);
